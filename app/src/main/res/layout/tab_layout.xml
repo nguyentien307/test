@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_home"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="30dp"
+        android:src="@drawable/ic_home_black_24dp"
+        app:backgroundTint="#EEE9E9"
+        android:scaleType="center"
+        android:visibility="invisible"
+
+        />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_chart"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:backgroundTint="#EEE9E9"
+        android:layout_gravity="bottom|end"
+        android:src="@drawable/ic_star_black_24dp"
+        android:scaleType="center"
+        android:visibility="invisible"
+
+        />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_songs"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:backgroundTint="#EEE9E9"
+        android:layout_gravity="bottom|end"
+        android:src="@drawable/ic_audiotrack_black_24dp"
+        android:scaleType="center"
+        android:visibility="invisible"
+
+        />
+
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_albums"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:backgroundTint="#EEE9E9"
+        android:layout_gravity="bottom|end"
+        android:src="@drawable/ic_album_black_24dp"
+        android:scaleType="center"
+        android:visibility="invisible"
+
+        />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_hot"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="bottom|end"
+        app:backgroundTint="#EEE9E9"
+        android:src="@drawable/ic_favorite_black_24dp"
+        android:scaleType="center"
+        android:visibility="invisible"
+
+        />
+</FrameLayout>
