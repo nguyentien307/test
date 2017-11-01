@@ -11,8 +11,8 @@ import com.example.tiennguyen.essay.fragment.FragmentPage;
  */
 
 public class PagerAdapter extends FragmentPagerAdapter {
-    final int PAGE_COUNT = 4;
-    private String tabTitles[] = new String[] { "Viet Nam", "Au My", "Han Quoc", "Khac" };
+    final int PAGE_COUNT = 3;
+    private String tabTitles[] = new String[] { "Viet Nam", "Au My", "Han Quoc"};
 
     public PagerAdapter(FragmentManager fm) {
         super(fm);

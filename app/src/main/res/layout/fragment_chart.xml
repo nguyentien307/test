@@ -7,37 +7,31 @@
     android:gravity="center"
     android:background="#9cf2db"
     android:layout_height="match_parent">
-    <com.astuetz.PagerSlidingTabStrip
-        android:id="@+id/tabs"
-        app:pstsShouldExpand="true"
-        app:pstsTextAllCaps="true"
+    <LinearLayout
+        android:id="@+id/songChart"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:textSize="14sp"
-        android:textColor="#000000"
-        app:pstsDividerPadding="0dp"
-        app:pstsDividerColor="#52da77"
-        app:pstsIndicatorColor="#ffaaaa"
-        app:pstsUnderlineColor="#5976d6"
-        app:pstsTabPaddingLeftRight="14dp"
-        app:pstsScrollOffset="20dp"
-        />
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewpager"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:background="#f1eeee"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bang xep hang bai hat"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/songTop"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/white" >
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ListView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true">
-
-            </ListView>
-        </RelativeLayout>
-    </android.support.v4.view.ViewPager>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Top tuan"
+            />
+    </LinearLayout>
 </LinearLayout>

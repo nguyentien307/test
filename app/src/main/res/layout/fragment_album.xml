@@ -3,12 +3,93 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:background="#b0fffc"
-    android:layout_height="match_parent">
-    <ListView
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    >
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/listViewAlbum"
+        android:layout_weight="0.2"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:weightSum="1"
+        >
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:orientation="vertical"
+            android:layout_marginLeft="16dp"
+            >
+            <Button
+                android:id="@+id/btnVietNam"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@drawable/button_fragment_album"
+                android:text="Việt Nam"
+                android:textColor="#ffffff"
+                android:layout_weight="0.5"
+                android:layout_marginTop="16dp"
+
+                />
+            <Button
+                android:id="@+id/btnUs"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@drawable/button_fragment_album"
+                android:text="Âu Mỹ"
+                android:textColor="#ffffff"
+
+                android:layout_weight="0.5"
+                android:layout_marginTop="16dp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:orientation="vertical"
+            >
+            <Button
+                android:id="@+id/btnKorea"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@drawable/button_fragment_album"
+                android:text="Hàn Quốc"
+                android:textColor="#ffffff"
+                android:layout_weight="0.5"
+                android:layout_marginTop="16dp"
+
+                />
+            <Button
+                android:id="@+id/btnOther"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@drawable/button_fragment_album"
+                android:text="Khác"
+                android:textColor="#ffffff"
+
+                android:layout_weight="0.5"
+                android:layout_marginTop="16dp"
+                />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
+        android:layout_margin="16dp"
         >
 
-    </ListView>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rccViewAlbum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical" />
+
+    </LinearLayout>
+
 </LinearLayout>

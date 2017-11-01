@@ -1,19 +1,18 @@
 package com.example.tiennguyen.essay.model;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- * Created by TIENNGUYEN on 10/14/2017.
+ * Created by TIENNGUYEN on 10/27/2017.
  */
 
-public class AlbumItem implements Serializable {
+public class SongItem {
     private String title;
     private ArrayList<SingerItem> singers;
     private String img;
     private String href;
 
-    public AlbumItem(String title, ArrayList<SingerItem> singers, String img, String href) {
+    public SongItem(String title, ArrayList<SingerItem> singers, String img, String href){
         this.title = title;
         this.singers = singers;
         this.img = img;
@@ -24,7 +23,7 @@ public class AlbumItem implements Serializable {
         return title;
     }
 
-    public void setTile(String title) {
+    public void setTitle(String title) {
         this.title = title;
     }
 

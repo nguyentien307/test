@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.Toast;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -15,17 +16,18 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 
 /**
  * Created by TIENNGUYEN on 10/13/2017.
  */
 
-public class GetData extends AsyncTask<String, Void, JSONObject>
+public class GetMultiData extends AsyncTask<ArrayList<String>, Void, JSONArray>
 {
     private ProgressDialog dialog;
     DataDownloadListener dataDownloadListener;
     Context ctx;
-    public GetData(Context ctx)
+    public GetMultiData(Context ctx)
     {
         //Constructor may be parametric
         this.dialog = new ProgressDialog(ctx);
@@ -45,55 +47,60 @@ public class GetData extends AsyncTask<String, Void, JSONObject>
     }
 
     @Override
-    protected JSONObject doInBackground(String... param)
-    {
+    protected JSONArray doInBackground(ArrayList<String>... param) {
         // do your task...
+        JSONArray results = new JSONArray();
         HttpURLConnection connection = null;
         BufferedReader reader = null;
 
-        try {
-            URL url = new URL(param[0]);
-            connection = (HttpURLConnection) url.openConnection();
-            connection.connect();
 
-
-            InputStream stream = connection.getInputStream();
-
-            reader = new BufferedReader(new InputStreamReader(stream));
-
-            StringBuffer buffer = new StringBuffer();
-            String line = "";
-
-            while ((line = reader.readLine()) != null) {
-                buffer.append(line+"\n");
-            }
-            JSONObject results = new JSONObject(buffer.toString());
-            return results;
-
-
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        } finally {
-            if (connection != null) {
-                connection.disconnect();
-            }
             try {
-                if (reader != null) {
-                    reader.close();
+                for (int i = 0; i < param[0].size(); i++) {
+                    URL url = new URL(param[0].get(i));
+                    connection = (HttpURLConnection) url.openConnection();
+                    connection.connect();
+
+
+                    InputStream stream = connection.getInputStream();
+
+                    reader = new BufferedReader(new InputStreamReader(stream));
+
+                    StringBuffer buffer = new StringBuffer();
+                    String line = "";
+
+                    while ((line = reader.readLine()) != null) {
+                        buffer.append(line + "\n");
+                    }
+                    JSONObject result = new JSONObject(buffer.toString());
+                    results.put(i, result);
                 }
+
+                return results;
+
+
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            } finally {
+                if (connection != null) {
+                    connection.disconnect();
+                }
+                try {
+                    if (reader != null) {
+                        reader.close();
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
+            return null;
         }
-        return null;
-    }
 
     @Override
-    protected void onPostExecute(JSONObject results)
+    protected void onPostExecute(JSONArray results)
     {
         if(results != null)
         {
@@ -114,7 +121,7 @@ public class GetData extends AsyncTask<String, Void, JSONObject>
 
 
     public static interface DataDownloadListener {
-        void dataDownloadedSuccessfully(JSONObject data);
+        void dataDownloadedSuccessfully(JSONArray data);
         void dataDownloadFailed();
     }
 }
